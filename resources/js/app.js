@@ -16,10 +16,11 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('crud-component', require('./components/CrudComponent.vue'));
 
 const app = new Vue({
     el: '#app',
     components: {
-		example-component,
+		// example-component,
 	}
 });

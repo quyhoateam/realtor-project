@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::prefix('admin')->middleware('auth')->group(function(){
@@ -46,3 +46,7 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 		Route::post('delete/{id}',['as'=>'deleteProduct','uses'=>'PostController@deleteImage']);
 	});
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

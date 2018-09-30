@@ -1,42 +1,23 @@
 <template>
-  <div class="crud">
-    <div class="col-1">
-      <img :src="image"/>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card card-default">
+                    <div class="card-header">Example Component crud</div>
+
+                    <div class="card-body">
+                        I'm an example component.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-2">
-      <h3>Name: {{ name | properCase }}</h3>
-      <select @change="update">
-        <option
-          v-for="col in [ 'red', 'green' ]"
-          :value="col"
-          :key="col"
-          :selected="col === color ? 'selected' : ''"
-        >{{ col | properCase }}</option>
-      </select>
-      <button @click="del">Delete</button>
-    </div>
-  </div>
 </template>
+
 <script>
-  export default {
-    computed: {
-      image() {
-        return `/images/${this.color}.png`;
-      }
-    },
-    methods: {
-      update(val) {
-        this.$emit('update', this.id, val.target.selectedOptions[0].value);
-      },
-      del() {
-        this.$emit('delete', this.id);
-      }
-    },
-    props: ['id', 'color', 'name'],
-    filters: {
-      properCase(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
+    export default {
+        mounted() {
+            console.log('Component mounted.')
+        }
     }
-  }
 </script>
